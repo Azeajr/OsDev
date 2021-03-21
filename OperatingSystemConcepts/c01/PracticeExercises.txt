@@ -1,0 +1,59 @@
+﻿1.1 What are the three main purposes of an operating system?
+Should provide a space where the user can run programs.  It should manage the resources/hardware of a computer to effeciently provide a specific service.
+
+1.2 We have stressed the need for an operating system to make efficient use of the computing hardware. When is it appropriate for the operating system to forsake this principle and to “waste” resources? Why is such a system not really wasteful?
+If wasting resources is what is need to effeciently solve the problem then that is what the OS should do.  At that point the resources are not being  wasted.  They are being used to solve a given problem.
+
+1.3 What is the main difficulty that a programmer must overcome in writing an operating system for a real-time environment?
+A specific proces must return its result within a specific time.  Otherwise real world consequences will take place.  Automated driving software must return its determination quick enough to give the vehicle time to implement the course corrections and have the desired result.
+
+1.4 Keeping in mind the various definitions of operating system, consider whether the operating system should include applications such as web browsers and mail programs. Argue both that it should and that it should not, and support your answers.
+An operating system should include such applications such as web browsers and mail programs.  When I download the newest and greatest Windows 10 I expect it come with all the programs I will need to accomplish the basic tasks I intend to carry out.  Those include browsing web sites and emailing.
+An operating system should not include such applications such as web browser and mail programs.  An operating system shoudl only concern itself with the management of the computer hardware and reosurce as needed by user.   If I want to install a web browser and mail client then the OS can certainly facilitate the use of those applications.
+
+1.5 How does the distinction between kernel mode and user mode function as a rudimentary form of protection (security)?
+The distinction allows the OS to control what a process is allowed to do.  Requiring that process be in a particular mode to complete certain tasks helps contorl what permission a specific process has.
+
+1.6 Which of the following instructions should be privileged?
+a. Set value of timer.
+privileged
+b. Read the clock.
+c. Clear memory.
+d. Issue a trap instruction.
+e. Turn off interrupts.
+privileged
+f. Modify entries in device-status table.
+privileged
+g. Switch from user to kernel mode.
+privileged
+h. Access I/O device.
+
+1.7 Some early computers protected the operating system by placing it in a memory partition that could not be modified by either the user job or the operating system itself. Describe two difficulties that you think could arise with such a scheme.
+There may be times when the OS may need to change how it processes interupts.  
+
+1.8 Some CPUs provide for more than two modes of operation. What are two possible uses of these multiple modes?
+Other possible modes could communicate when the virtual machine manager(VMM) is in control.  The other modes could be used by the OS to deliniate special purpose levels of permission.  Some amalgam of kernel mode and user mode.
+
+1.9 Timers could be used to compute the current time. Provide a short description of how this could be accomplished.
+Start with a starting time measurement.  Then subtract the current time measurement by the starting time measurement to get the elapsed time.
+
+1.10 Give two reasons why caches are useful. What problems do they solve? What problems do they cause? If a cache can be made as large as the device for which it is caching (for instance, a cache as large as a disk), why not make it that large and eliminate the device?
+Cashes are faster than main memory. Secondly by strategically using cache to keep data that might be needed soon we limit the number of times we need to get data from disk.  Cashes can be installed to improve performance where a large disparity in access time or transfer rate exists between two components.
+
+1.11 Distinguish between the client–server and peer-to-peer models of dis- tributed systems.
+In the client-server model there is one server and several clients that get services from the server.  The server is the bottleneck for communications.  In the peer-to-peer model every client can be a server.
+
+1.12 How do clustered systems differ from multiprocessor systems? What is required for two machines belonging to a cluster to cooperate to provide a highly available service?
+Clustered systems differ from multiprocessor systems in that they are composed two or more individual systems.  A clustered system provides high-availability service when a node in a cluster adds redundancy by monitoring if a node becomes unavailable.  In that case a node would take over for the downed node.
+
+1.13 Consider a computing cluster consisting of two nodes running a database. Describe two ways in which the cluster software can manage access to the data on the disk. Discuss the benefits and disadvantages of each.
+In asymmetric clustering, one active node provides access to the database and the second node would monitor the first.  If the first goes down then the second would take over.  On drawback is that one node would not be doing much while it montiors the other node.
+In symmetric clustering both nodes are providing access to the database. Although this may provide more through put, but it requires that more than one application be available to run.
+
+1.14 What is the purpose of interrupts? How does an interrupt differ from a trap? Can traps be generated intentionally by a user program? If so, for what purpose?
+The purpose of interrupts is to control what is being processed by the cpu at a given time. They allow hardware to communicate with the OS. A trap is software generated interrupt caused by an error or by request of a user program.  Syscall are software generated interrupts used to get a service provided by the OS.
+
+1.15 Explain how the Linux kernel variables HZ and jiffies can be used to determine the number of seconds the system has been running since it was booted.
+The kernel configuration parameter HZ specifies the frequencey of timer interrupts. While the kernel variable jiffies reoresents the number of timer interrupts that have occured since the since the system was booted.  I could divide jiffies by HZ to get the number of seconds since the kernel was booted.
+
+1.16 Direct memory access is used for high-speed I/O devices in order to avoid increasing the CPU’s execution load. a. How does the CPU interface with the device to coordinate the transfer? b. How does the CPU know when the memory operations are com- plete? c. The CPU is allowed to execute other programs while the DMA controller is transferring data. Does this process interfere with the execution of the user programs? If so, describe what forms of interference are caused.
