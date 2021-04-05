@@ -56,6 +56,18 @@ int addChild(node *parent, node *child){
     return status;
 }
 
+int setChild(node *parent, int index, node *child){
+    int status = UNDEFINE;
+    if(parent){
+        if((index >=0) && (index < parent->numChildren)){
+            parent->children[index] = child;
+            status = SUCCESS;
+        }
+    }
+
+    return status;
+}
+
 
 
 int main(int argc, char const *argv[])
