@@ -1,0 +1,26 @@
+3.1 This printf will print PARENT: value = 5 because global variables are not shared between parent and child processes.
+
+3.2 This process will end up spawning a total of 8 processes including the parent process.
+
+M           c1    c2    c3
+c1 2 fork   c4    c5
+c2 1 fork   c6
+c3 0 fork
+c4 1 fork   c7
+c5 0 fork
+c6 0 fork
+c7 0 fork
+
+3.11 This process will end up creating 15 other processes for a total of 16 processes or 2^4 processes.
+
+3.12 printf("LINE J") will only be reached within a successfully forked child process.
+
+3.13    child pid = 0
+        child pid1 = 2603
+
+        parent pid = 2601
+        parent pid1 = 2600
+
+3.15    Line x will print the values of nums in the child process after they have been changed.
+        Line y will also print the values of nums but these values have not been affected by the child process.
+        The child process gets copies of the parent's global variables.
