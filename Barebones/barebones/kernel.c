@@ -75,6 +75,10 @@ void terminal_putentryat(char c, uint8_t color, size_t x, size_t y){
     terminal_buffer[index] = vga_entry(c, color);
 }
 
+void terminal_shift_down(){
+    
+}
+
 void terminal_putchar(char c){
     
     if(c == '\n'){
@@ -82,6 +86,7 @@ void terminal_putchar(char c){
         terminal_column = 0;
         return;
     }
+
     terminal_putentryat(c, terminal_color, terminal_column, terminal_row);
 
     if(++terminal_column == VGA_WIDTH){
@@ -106,4 +111,10 @@ void terminal_writestring(const char* data){
 void kernel_main(void){
     terminal_initialize();
     terminal_writestring("Hello, kernel World!\n");
+    terminal_writestring(
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n");
+    terminal_writestring("This is a new line.\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n");
+    terminal_writestring("This is a new line.\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n");
+    terminal_writestring("This is a new line.\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n");github
+    
 }
